@@ -84,17 +84,8 @@ if [ "$1" == 'find' ] || [ "$1" == 'f' ] || [ "$1" == 'search' ] || [ "$1" == 's
         fi
 
         cat "$tmp1" | sed 's#snippets/##g' > "$tmp2"
-        echo "$0"
-        echo
-        cat "$tmp1"
-        echo
-        cat "$tmp2"
-        echo 
         cat "$tmp2" | awk '{printf "%d\t%s\n", NR, $0}' > "$tmp3" # add line numbers on each line
 
-        cat "$tmp3"
-        echo 
-        exit
         l=0
         while read line; do
             l=$((l+1))
